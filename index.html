@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Consola Atelier: calculadora de costos y validador de productos para impresion 3D."
+    />
+    <title>Consola Atelier - Diseno e impresion 3D</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+    <link rel="stylesheet" href="src/css/styles.css" />
+  </head>
+  <body>
+    <header class="encabezado">
+      <div class="encabezado__marca">
+        <img class="encabezado__logo" src="assets/logo.svg" alt="Logo de Atelier" width="40" height="40" />
+        <div class="encabezado__textos">
+          <span class="encabezado__nombre">Atelier</span>
+          <span class="encabezado__lema">Diseno e impresion 3D</span>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Secciones">
+        <button class="nav__tab" data-vista="calculadora" type="button" aria-current="page">
+          Calculadora
+        </button>
+        <button class="nav__tab" data-vista="validador" type="button">
+          Validador
+        </button>
+        <button class="nav__tab" data-vista="factibilidad" type="button">
+          Factibilidad
+        </button>
+      </nav>
+    </header>
+
+    <main class="contenido">
+      <section id="view-calculadora" class="vista" aria-label="Calculadora de costos"></section>
+      <section id="view-validador" class="vista" hidden aria-label="Validador de productos"></section>
+      <section id="view-factibilidad" class="vista" hidden aria-label="Factibilidad de video o producto"></section>
+    </main>
+
+    <footer class="pie">
+      <span>Consola Atelier v1</span>
+    </footer>
+
+    <script type="module" src="src/js/app.js"></script>
+  </body>
+</html>

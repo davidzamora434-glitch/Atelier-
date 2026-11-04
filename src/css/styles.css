@@ -1,0 +1,697 @@
+/* styles.css - Tema de marca Consola Atelier */
+
+:root {
+  --naranja: #f08020;
+  --naranja-oscuro: #d96c13;
+  --gris-oscuro: #2e2e2e;
+  --gris-medio: #333333;
+  --gris-texto: #4a4a4a;
+  --fondo: #f7f7f8;
+  --blanco: #ffffff;
+  --borde: #e2e2e5;
+  --verde: #2e9e5b;
+  --rojo: #d14343;
+  --amarillo: #c88a00;
+  --radio: 10px;
+  --sombra: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+  --fuente:
+    "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fuente);
+  background: var(--fondo);
+  color: var(--gris-texto);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Encabezado ---------- */
+.encabezado {
+  background: var(--gris-oscuro);
+  color: var(--blanco);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 20px;
+  box-shadow: var(--sombra);
+}
+
+.encabezado__marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.encabezado__logo {
+  display: block;
+}
+
+.encabezado__textos {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.encabezado__nombre {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--naranja);
+  letter-spacing: 0.5px;
+}
+
+.encabezado__lema {
+  font-size: 0.8rem;
+  color: #c9c9c9;
+}
+
+/* ---------- Navegacion por pestanas ---------- */
+.nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav__tab {
+  background: transparent;
+  color: #d8d8d8;
+  border: 1px solid transparent;
+  border-radius: var(--radio);
+  padding: 8px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.nav__tab:hover {
+  background: rgba(240, 128, 32, 0.15);
+  color: var(--blanco);
+}
+
+.nav__tab[aria-current="page"] {
+  background: var(--naranja);
+  color: var(--blanco);
+}
+
+/* ---------- Contenido ---------- */
+.contenido {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+.vista {
+  animation: aparecer 0.2s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Tarjetas ---------- */
+.tarjeta {
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.tarjeta__titulo {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  color: var(--gris-oscuro);
+}
+
+.tarjeta__descripcion {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* ---------- Formularios ---------- */
+.formulario {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.campo label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gris-medio);
+}
+
+.campo input,
+.campo select {
+  padding: 9px 10px;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: var(--blanco);
+  color: var(--gris-oscuro);
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: none;
+  border-color: var(--naranja);
+  box-shadow: 0 0 0 3px rgba(240, 128, 32, 0.2);
+}
+
+/* ---------- Botones ---------- */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    transform 0.05s;
+}
+
+.boton:active {
+  transform: translateY(1px);
+}
+
+.boton--primario {
+  background: var(--naranja);
+  color: var(--blanco);
+}
+
+.boton--primario:hover {
+  background: var(--naranja-oscuro);
+}
+
+.boton--secundario {
+  background: var(--fondo);
+  color: var(--gris-oscuro);
+  border: 1px solid var(--borde);
+}
+
+.boton--secundario:hover {
+  background: #ededf0;
+}
+
+/* ---------- Tablas ---------- */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.tabla th,
+.tabla td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--borde);
+}
+
+.tabla th {
+  background: var(--fondo);
+  color: var(--gris-oscuro);
+  font-weight: 700;
+}
+
+/* ---------- Panel de resultados / desglose ---------- */
+.desglose {
+  background: var(--fondo);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 16px;
+}
+
+.desglose__fila {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--borde);
+}
+
+.desglose__fila:last-child {
+  border-bottom: none;
+}
+
+.desglose__fila--total {
+  font-weight: 700;
+  color: var(--gris-oscuro);
+  border-top: 2px solid var(--naranja);
+  margin-top: 6px;
+  padding-top: 10px;
+}
+
+.valor-positivo {
+  color: var(--verde);
+  font-weight: 700;
+}
+
+.valor-negativo {
+  color: var(--rojo);
+  font-weight: 700;
+}
+
+/* ---------- Distintivos de recomendacion ---------- */
+.distintivo {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--blanco);
+}
+
+.distintivo--vender {
+  background: var(--verde);
+}
+
+.distintivo--personaliza {
+  background: var(--amarillo);
+}
+
+.distintivo--descartar {
+  background: var(--rojo);
+}
+
+/* ---------- Calculadora (MODULO 1) ---------- */
+.calc {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.calc .tarjeta {
+  margin-bottom: 0;
+}
+
+.calc__seccion-titulo {
+  margin: 20px 0 10px;
+  font-size: 0.95rem;
+  color: var(--naranja-oscuro);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.calc__seccion-titulo:first-of-type {
+  margin-top: 8px;
+}
+
+.campo__ayuda {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.calc__nota {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  color: #777;
+}
+
+.calc__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.calc__resultado {
+  position: sticky;
+  top: 16px;
+}
+
+.desglose__subtitulo {
+  margin: 14px 0 6px;
+  font-size: 0.85rem;
+  color: var(--gris-oscuro);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.desglose__subtitulo:first-child {
+  margin-top: 0;
+}
+
+/* Lado a lado en escritorio. */
+@media (min-width: 860px) {
+  .calc {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  }
+}
+
+/* ---------- Validador (MODULO 2) ---------- */
+.val {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.val .tarjeta {
+  margin-bottom: 0;
+}
+
+.val__traer {
+  margin-top: 6px;
+  align-self: flex-start;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+}
+
+.val__acciones {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  grid-column: 1 / -1;
+}
+
+.val-aviso {
+  color: var(--rojo);
+  font-weight: 600;
+}
+
+.val-vacio {
+  text-align: center;
+  color: #999;
+  margin: 0;
+  padding: 10px 0;
+}
+
+/* Lista comparativa: tabla en escritorio, tarjetas en movil. */
+.val-tabla-envoltura {
+  overflow-x: auto;
+}
+
+.val-tabla td .boton {
+  padding: 6px 12px;
+  font-size: 0.82rem;
+}
+
+.val-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.val-card {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 14px;
+  background: var(--fondo);
+}
+
+.val-card__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.val-card__titulo {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--gris-oscuro);
+}
+
+.val-card__datos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 14px;
+  margin: 0 0 12px;
+}
+
+.val-card__datos div {
+  display: flex;
+  flex-direction: column;
+}
+
+.val-card__datos dt {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #888;
+}
+
+.val-card__datos dd {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--gris-oscuro);
+  font-weight: 600;
+}
+
+.val-proximamente {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.val-proximamente strong {
+  color: var(--gris-oscuro);
+}
+
+/* Por defecto (escritorio): tabla visible, tarjetas ocultas. */
+.val-cards {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .val-tabla-envoltura {
+    display: block;
+  }
+}
+
+/* En movil: ocultar la tabla y mostrar las tarjetas. */
+@media (max-width: 719px) {
+  .val-tabla-envoltura {
+    display: none;
+  }
+
+  .val-cards {
+    display: grid;
+  }
+}
+
+/* ---------- Factibilidad (MODULO 3) ---------- */
+.fac {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.fac .tarjeta {
+  margin-bottom: 0;
+}
+
+.fac__traer {
+  margin-top: 6px;
+  align-self: flex-start;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+}
+
+.fac__acciones {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  grid-column: 1 / -1;
+}
+
+/* Lista comparativa: tabla en escritorio, tarjetas en movil. */
+.fac-tabla-envoltura {
+  overflow-x: auto;
+}
+
+.fac-tabla td .boton {
+  padding: 6px 12px;
+  font-size: 0.82rem;
+}
+
+.fac-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.fac-card {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 14px;
+  background: var(--fondo);
+}
+
+.fac-card__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.fac-card__titulo {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--gris-oscuro);
+}
+
+.fac-card__datos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 14px;
+  margin: 0 0 12px;
+}
+
+.fac-card__datos div {
+  display: flex;
+  flex-direction: column;
+}
+
+.fac-card__datos dt {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #888;
+}
+
+.fac-card__datos dd {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--gris-oscuro);
+  font-weight: 600;
+}
+
+/* Lista de fuentes de tendencias. */
+.fac-fuentes {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.fac-fuentes a {
+  color: var(--naranja-oscuro);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.fac-fuentes a:hover {
+  text-decoration: underline;
+}
+
+/* Aviso de derechos de autor: resaltado con el color de marca. */
+.fac-aviso-legal {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-left: 4px solid var(--naranja);
+  background: #fff5ec;
+  border-radius: var(--radio);
+  font-size: 0.88rem;
+  color: var(--gris-texto);
+}
+
+/* Por defecto (escritorio): tabla visible, tarjetas ocultas. */
+.fac-cards {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .fac-tabla-envoltura {
+    display: block;
+  }
+}
+
+/* En movil: ocultar la tabla y mostrar las tarjetas. */
+@media (max-width: 719px) {
+  .fac-tabla-envoltura {
+    display: none;
+  }
+
+  .fac-cards {
+    display: grid;
+  }
+}
+
+/* ---------- Placeholder (vistas vacias de FEAT-001) ---------- */
+.placeholder {
+  text-align: center;
+  color: #999;
+  padding: 40px 20px;
+}
+
+/* ---------- Pie ---------- */
+.pie {
+  text-align: center;
+  padding: 16px;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 640px) {
+  .encabezado {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav {
+    width: 100%;
+  }
+
+  .nav__tab {
+    flex: 1;
+    text-align: center;
+  }
+
+  .contenido {
+    padding: 16px 12px;
+  }
+
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+}
