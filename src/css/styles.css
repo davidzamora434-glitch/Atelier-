@@ -656,6 +656,239 @@ body {
   }
 }
 
+/* ---------- Fondo de proyectos (MODULO 4) ---------- */
+.fondo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.fondo .tarjeta {
+  margin-bottom: 0;
+}
+
+.fondo__acciones {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  grid-column: 1 / -1;
+}
+
+.fondo-aviso {
+  color: var(--rojo);
+  font-weight: 600;
+}
+
+.fondo-vacio {
+  text-align: center;
+  color: #999;
+  margin: 0;
+  padding: 10px 0;
+}
+
+/* Cada meta es una tarjeta clara con su resumen, barra y aportes. */
+.fondo-meta {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 16px;
+  background: var(--fondo);
+  margin-bottom: 16px;
+}
+
+.fondo-meta:last-child {
+  margin-bottom: 0;
+}
+
+.fondo-meta__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.fondo-meta__titulo {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--gris-oscuro);
+}
+
+.fondo-meta__cabecera .boton {
+  padding: 6px 12px;
+  font-size: 0.82rem;
+}
+
+.fondo-meta__resumen {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+}
+
+.fondo-meta__total {
+  font-weight: 700;
+  color: var(--gris-oscuro);
+}
+
+.fondo-meta__objetivo {
+  color: #777;
+}
+
+.fondo-meta__nota {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  color: #777;
+  font-style: italic;
+}
+
+/* Barra de progreso: pista neutral + relleno en el naranja de marca. */
+.fondo-progreso {
+  margin: 6px 0 14px;
+}
+
+.fondo-barra {
+  width: 100%;
+  height: 14px;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.fondo-barra__relleno {
+  height: 100%;
+  max-width: 100%;
+  background: var(--naranja);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.fondo-progreso--sin-meta .fondo-barra__relleno {
+  background: transparent;
+}
+
+.fondo-progreso__texto {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 0;
+  font-size: 0.88rem;
+  color: var(--gris-texto);
+}
+
+.fondo-progreso__pct {
+  font-weight: 700;
+  color: var(--naranja-oscuro);
+}
+
+.fondo-progreso__falta {
+  color: #777;
+}
+
+.fondo-insignia {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--blanco);
+  background: var(--verde);
+}
+
+/* Formulario de aporte dentro de cada meta. */
+.fondo-aporte-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  padding: 14px;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  margin-bottom: 14px;
+}
+
+.fondo-aporte-form__acciones {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  grid-column: 1 / -1;
+}
+
+/* Lista de aportes: tabla en escritorio, tarjetas en movil. */
+.fondo-tabla-envoltura {
+  overflow-x: auto;
+}
+
+.fondo-tabla td .boton {
+  padding: 6px 12px;
+  font-size: 0.82rem;
+}
+
+.fondo-aportes-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.fondo-aporte-card {
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 12px;
+  background: var(--blanco);
+}
+
+.fondo-aporte-card__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.fondo-aporte-card__monto {
+  font-weight: 700;
+  color: var(--gris-oscuro);
+}
+
+.fondo-aporte-card__fecha {
+  font-size: 0.82rem;
+  color: #888;
+}
+
+.fondo-aporte-card__nota {
+  margin: 0 0 10px;
+  font-size: 0.88rem;
+  color: var(--gris-texto);
+}
+
+/* Por defecto (escritorio): tabla visible, tarjetas ocultas. */
+.fondo-aportes-cards {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .fondo-tabla-envoltura {
+    display: block;
+  }
+}
+
+/* En movil: ocultar la tabla y mostrar las tarjetas. */
+@media (max-width: 719px) {
+  .fondo-tabla-envoltura {
+    display: none;
+  }
+
+  .fondo-aportes-cards {
+    display: grid;
+  }
+}
+
 /* ---------- Placeholder (vistas vacias de FEAT-001) ---------- */
 .placeholder {
   text-align: center;

@@ -56,6 +56,21 @@ decidir si vale la pena agregar un producto nuevo al catalogo.
    Marvel, Disney, etc.) puede traer problemas; lo mas seguro es inspirarse en
    el estilo sin copiar el personaje exacto o usar disenos originales.
 
+4. **Fondo de proyectos**: un motivador visual para financiar tus proyectos
+   personales (como un **poliformer** y un **mini robot**) apartando una parte
+   de las ganancias de las ventas. Creas **metas** con un nombre, un
+   **objetivo en COP opcional** (una meta puede existir **sin objetivo** y aun
+   asi registrar aportes) y una nota opcional. En cada meta registras
+   **aportes** con monto, fecha (por defecto hoy) y una nota (por ejemplo
+   "Venta de 3 organizadores"). El modulo suma lo acumulado y, cuando la meta
+   tiene objetivo, muestra una **barra de progreso en el naranja de la marca**
+   con el porcentaje y cuanto te falta, o la marca como **"Meta superada"**
+   cuando ya la cumpliste. Si la meta no tiene objetivo, muestra solo el total
+   acumulado con el texto "Aun sin meta definida". En la primera carga se
+   siembran dos metas de ejemplo (**Poliformer** y **Mini robot**) sin objetivo,
+   que puedes editar o eliminar. Todo se guarda en este navegador bajo la clave
+   `atelier:fondo`.
+
 ## Como ejecutar la aplicacion
 
 No necesita instalacion. Basta con servir la carpeta del proyecto con cualquier
@@ -122,9 +137,6 @@ del Validador) y se enchufan siguiendo la misma arquitectura (modulo puro en
 - **Biblioteca de filamentos y proveedores**: ampliar `FILAMENTOS` en
   `src/js/lib/config.js` + `src/js/lib/proveedores.js` +
   `src/js/ui/proveedores.js`.
-- **Fondo de proyectos** (acumulador de ganancias hacia una meta, por ejemplo
-  una nueva impresora): `src/js/lib/fondo.js` (logica de aportes/meta) +
-  `src/js/ui/fondo.js`, reutilizando `src/js/lib/storage.js`.
 
 ## Estructura de carpetas
 
@@ -137,10 +149,12 @@ src/js/lib/config.js    Constantes de dominio (maquinas, filamentos, tarifas ML)
 src/js/lib/costs.js     Logica PURA de costos y ganancia neta en Mercado Libre
 src/js/lib/validator.js Logica PURA de puntuacion de productos
 src/js/lib/factibilidad.js Logica PURA de puntuacion de factibilidad
+src/js/lib/fondo.js     Logica PURA del fondo (aportes, meta, progreso)
 src/js/lib/storage.js   Envoltura de localStorage con fallback en memoria
 src/js/ui/calculator.js Interfaz del MODULO 1 (Calculadora)
 src/js/ui/validator.js  Interfaz del MODULO 2 (Validador) + seccion Proximamente
 src/js/ui/factibilidad.js Interfaz del MODULO 3 (Factibilidad)
+src/js/ui/fondo.js      Interfaz del MODULO 4 (Fondo de proyectos)
 tests/*.test.js         Pruebas con node:test
 ```
 

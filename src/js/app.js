@@ -22,6 +22,12 @@ const VISTAS = {
     placeholder:
       "Aqui ira la Factibilidad de video o producto. Disponible proximamente.",
   },
+  fondo: {
+    mount: "#view-fondo",
+    modulo: "./ui/fondo.js",
+    placeholder:
+      "Aqui ira el Fondo de proyectos. Disponible proximamente.",
+  },
 };
 
 const tabs = Array.from(document.querySelectorAll(".nav__tab"));
